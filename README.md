@@ -23,7 +23,7 @@ sudo apt install mysql-server
 sudo mysql_secure_installation
 ```
 
-After installing MySQL, make sure the `download_db.sh` script is executable:
+After installing MySQL, make sure the `mysqlda.sh` script is executable:
 
 ```bash
 # Make the script executable
@@ -38,4 +38,4 @@ chmod +x download_db.sh
 All exercises and projects are organized in folders by chapter or topic. Each folder contains:
 
 *   `.sql` scripts with the solution queries.
-*   Bash scripts to run the solutions directly from the command line.
+*   the `mysqlda.sh` file when print outputs of each question when the script runs as each question is continuusly included as I update.
