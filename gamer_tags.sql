@@ -1,11 +1,12 @@
-CREATE abmysqlda IF NOT EXISTS;
-USE abmysqlda;
-
 -- https://www.analystbuilder.com/courses/mysql-for-data-analytics/question/gamer-tags-vWMEm
 -- Create a gamer tag for each player in the tournament.
 -- Select the first 3 characters of their first name and combine that with the year they were born.
 -- Your output should have their first name, last name, and gamer tag called "gamer_tag"
 -- Order output on gamertag in alphabetical order.
+
+CREATE DATABASE IF NOT EXISTS abmysqlda;
+
+USE abmysqlda;
 
 CREATE TABLE IF NOT EXISTS gamer_tags (
     first_name varchar(35),
