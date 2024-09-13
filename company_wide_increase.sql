@@ -1,5 +1,4 @@
 CREATE DATABASE IF NOT EXISTS abmysqlda;
-
 USE abmysqlda;
 
 -- https://www.analystbuilder.com/courses/mysql-for-data-analytics/question/company-wide-increase-ouuah
@@ -25,6 +24,31 @@ INSERT INTO employees VALUES
 (1006, 2, 85000),
 (1007, 2, 105000),
 (1008, 3, 300000),
-(1009, 2, 105000);
+(1009, 2, 105000),
+(1010, 2, 95000),
+(1011, 2, 115000),
+(1012, 1, 85000),
+(1013, 1, 75000),
+(1014, 1, 60000),
+(1015, 1, 75000),
+(1016, 2, 85000),
+(1017, 2, 105000),
+(1018, 2, 95000),
+(1019, 1, 75000);
 
 DELIMITER //
+
+CREATE PROCEDURE IF NOT EXISTS company_wide_increase()
+BEGIN
+    SELECT *,
+        CASE
+          WHEN pay_level = 1 THEN (salary * 1.1)
+          WHEN pay_level = 2 THEN (salary * 1.15)
+          WHEN pay_level = 3 THEN (salary * 3)
+        END AS new_salary
+    FROM employees;
+END //
+
+DELIMITER ;
+
+CALL company_wide_increase();
