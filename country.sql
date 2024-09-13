@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS abmysqlda;
 USE abmysqlda;
 
 CREATE TABLE if not exists country (
