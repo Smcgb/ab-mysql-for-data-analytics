@@ -33,6 +33,34 @@ chmod +x download_db.sh
 ./download_db.sh
 ```
 
+### Loading in CSV
+
+In order to load in CSVs properly via the script, you will need to ensure local-infile is set to 1.
+
+Add the following line under the [mysqld] section:
+```ini
+[mysqld]
+local-infile=1
+
+
+```
+Restart MySQL Server:
+```bash
+sudo systemctl restart mysql
+```
+Or
+```
+net stop mysql
+net start mysql
+```
+
+There is an included
+```sql
+SET GLOBAL local_infile=ON;
+``` 
+included in the script but this may not function properly.
+
+
 ## Exercises and Projects
 
 All exercises and projects are organized in folders by chapter or topic. Each folder contains:

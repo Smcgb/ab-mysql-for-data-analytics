@@ -13,6 +13,8 @@ CREATE TABLE IF NOT EXISTS boss (
     boss_id INT
 );
 
+TRUNCATE boss;
+
 INSERT INTO boss (employee_id, employee_name, boss_id) 
     VALUES
         (1, 'Josh Harper', NULL),
