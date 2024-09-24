@@ -92,7 +92,7 @@ for file in "${files[@]}"; do
     echo "----------------"
 
     # Run each SQL file with MySQL
-    mysql -u "$mysql_user" -p"$mysql_password" <<EOF
+    mysql -u "$mysql_user" -p"$mysql_password" --local-infile=1 <<EOF
 source $file;
 EOF
 

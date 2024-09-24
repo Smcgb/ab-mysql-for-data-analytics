@@ -1,7 +1,4 @@
 -- https://www.analystbuilder.com/courses/mysql-for-data-analytics/lesson/world-life-expectancy-data-cleaning-SeIGY
-
-SET GLOBAL local_infile=ON;
-
 CREATE DATABASE IF NOT EXISTS wle;
 USE wle;
 
@@ -87,5 +84,31 @@ WHERE row_num > 1);
 
 CALL view_num_duplicates();
 
-SELECT 'Check for missing values';
+SELECT 'Check for missing values in Status';
+
+SELECT * FROM worldlifeexpectancy
+    WHERE status = '';
+
+WITH filled_status_table AS
+         (SELECT Country,
+                 Year,
+                 COALESCE(
+                         NULLIF(status, ''), -- Treat empty strings as NULL
+                         LAG(NULLIF(status, '')) OVER (PARTITION BY country ORDER BY year), -- Previous non-empty status
+                         LEAD(NULLIF(status, '')) OVER (PARTITION BY country ORDER BY year) -- Next non-empty status
+                 ) AS filled_status
+          FROM worldlifeexpectancy
+         )
+
+UPDATE worldlifeexpectancy
+    JOIN filled_status_table
+    ON worldlifeexpectancy.country = filled_status_table.country
+        AND worldlifeexpectancy.year = filled_status_table.year
+SET worldlifeexpectancy.status = filled_status_table.filled_status
+WHERE worldlifeexpectancy.status = '';
+
+SELECT 'Validating Clean';
+
+SELECT * FROM worldlifeexpectancy
+WHERE status = '';
 
