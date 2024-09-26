@@ -18,7 +18,7 @@ TRUNCATE boss;
 INSERT INTO boss (employee_id, employee_name, boss_id) 
     VALUES
         (1, 'Josh Harper', NULL),
-        (2, 'Carolina Fancis', NULL),
+        (2, 'Carolina Francis', NULL),
         (3, 'Gerald Butler', 2),
         (4, 'Richie Rich', 3),
         (5, 'Carol Danvers', NULL),
@@ -37,7 +37,7 @@ BEGIN
     FROM boss as e
     LEFT OUTER JOIN boss as b
     ON b.employee_id = e.boss_id
-      ORDER BY e.employee_name ASC;
+      ORDER BY e.employee_name;
 END //
 
 DELIMITER ;

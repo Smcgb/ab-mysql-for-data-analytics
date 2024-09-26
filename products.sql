@@ -19,7 +19,7 @@ INSERT INTO products (product_name, purchase_price, sales_price) VALUES
     ('Dog toothbrush and toothpaste set', 4.0, 10.0);
 
 DELIMITER //
-    -- https://www.analystbuilder.com/courses/mysql-for-data-analytics/question/profit-margin-PGQzz
+    -- www.analystbuilder.com/courses/mysql-for-data-analytics/question/profit-margin-PGQzz
     -- Determine the profit margin for each product.
     -- The profit margin is derived by subtracting the Purchase Price from the Sale Price and then applying a 7% tax on that amount.
     -- Present the product name along with its corresponding profit (round to 2 decimal places).

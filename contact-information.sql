@@ -79,11 +79,11 @@ BEGIN
     SELECT 
       p.first_name,
       p.last_name,
-      COALESCE(c.email, lower(CONCAT(p.first_name, ".", p.last_name, "@gmail.com"))) as email
+      COALESCE(c.email, lower(CONCAT(p.first_name, '.', p.last_name, '@gmail.com'))) as email
     FROM people_information AS p
     LEFT JOIN contact_information AS c
       ON c.id = p.id
-    ORDER BY email ASC;
+    ORDER BY email;
 END //
 
 DELIMITER ;

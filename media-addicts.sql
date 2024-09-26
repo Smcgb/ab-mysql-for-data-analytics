@@ -56,7 +56,7 @@ BEGIN
     LEFT JOIN media_user AS u 
       ON u.user_id = ut.user_id
     HAVING media_time_minutes > (SELECT AVG(media_time_minutes) FROM media_user_time)) AS t1
-    ORDER BY first_name ASC;
+    ORDER BY first_name;
 END //
 DELIMITER ;
 

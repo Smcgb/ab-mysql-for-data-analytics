@@ -44,7 +44,7 @@ BEGIN
            RANK() OVER(ORDER BY SUM(score) DESC) rn
     FROM art_rankings
     GROUP BY artist_id
-      ORDER BY rn ASC, artist_id ASC;
+      ORDER BY rn, artist_id;
 END //
 
 DELIMITER ;

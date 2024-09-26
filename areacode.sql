@@ -1,5 +1,5 @@
 -- https://www.analystbuilder.com/courses/mysql-for-data-analytics/question/football-perfection-EcevI
--- Identify the Football teams that scored over 400 points and had 80 or less fouls.
+-- Identify the Football teams that scored over 400 points and had 80 or fewer fouls.
 
 CREATE DATABASE IF NOT EXISTS abmysqlda;
 
@@ -28,7 +28,7 @@ DELIMITER //
 CREATE PROCEDURE IF NOT EXISTS seven01_areacode()
 BEGIN
     SELECT numbers FROM phone_numbers
-    WHERE numbers LIKE "701%";
+    WHERE numbers LIKE '701%';
 END //
 
 DELIMITER ;
