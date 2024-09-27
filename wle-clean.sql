@@ -203,7 +203,7 @@ SELECT
 FROM worldlifeexpectancy
 WHERE Country IN ('Afghanistan', 'Albania');
 
-SELECT "Imputing GDP, Missing values imputed with the average GDP of the country";
+SELECT 'Imputing GDP, Missing values imputed with the average GDP of the country';
 
 WITH filled_gdp_table AS
          (SELECT Country,
