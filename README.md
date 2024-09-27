@@ -66,4 +66,4 @@ included in the script but this may not function properly.
 All exercises and projects are organized in folders by chapter or topic. Each folder contains:
 
 *   `.sql` scripts with the solution queries.
-*   the `mysqlda.sh` file when print outputs of each question when the script runs as each question is continuusly included as I update.
+*   the `mysqlda.sh` file prints outputs of each question when the script runs. Each question is continuosly included as I update.
