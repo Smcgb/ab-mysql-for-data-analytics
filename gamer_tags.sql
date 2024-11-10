@@ -28,7 +28,7 @@ DELIMITER //
 
 CREATE PROCEDURE IF NOT EXISTS create_gamer_tags()
 BEGIN
-    SELECT first_name, last_name, CONCAT(first_name, 1, 3), YEAR(birth_date) AS gamer_tag
+    SELECT first_name, last_name, CONCAT(first_name, 1, 3, YEAR(birth_date)) AS gamer_tag
     FROM gamer_tags
     ORDER BY gamer_tag;
 END //
